@@ -1,251 +1,308 @@
-[{
+[
+  {
     "id": 1,
     "trade": "Painter",
     "cost_code": "16-700 - Communications",
     "subcontract_cat": "Construction Clean and Final Clean"
-  }, {
+  },
+  {
     "id": 2,
     "trade": "Welder",
     "cost_code": "6-400 - Architectural Woodwork",
     "subcontract_cat": "Landscaping & Irrigation"
-  }, {
+  },
+  {
     "id": 3,
     "trade": "Millwright",
     "cost_code": "6-600 - Plastic Fabrications",
     "subcontract_cat": "Hard Tile & Stone"
-  }, {
+  },
+  {
     "id": 4,
     "trade": "Waterproofer",
     "cost_code": "11-450 - Residential Equipment",
     "subcontract_cat": "Curb & Gutter"
-  }, {
+  },
+  {
     "id": 5,
     "trade": "Terrazzo",
     "cost_code": "13-230 - Digester Covers and Appurtenances",
     "subcontract_cat": "Elevator"
-  }, {
+  },
+  {
     "id": 6,
     "trade": "Millwright",
     "cost_code": "1-570 - Temporary Controls",
     "subcontract_cat": "Landscaping & Irrigation"
-  }, {
+  },
+  {
     "id": 7,
     "trade": "Pipefitter",
     "cost_code": "1-712 - Local Conditions",
     "subcontract_cat": "Retaining Wall and Brick Pavers"
-  }, {
+  },
+  {
     "id": 8,
     "trade": "HVAC",
     "cost_code": "2-850 - Bridges/Footbridges",
     "subcontract_cat": "Construction Clean and Final Clean"
-  }, {
+  },
+  {
     "id": 9,
     "trade": "Painter",
     "cost_code": "5-200 - Metal Joists",
     "subcontract_cat": "Waterproofing & Caulking"
-  }, {
+  },
+  {
     "id": 10,
     "trade": "Plasterers",
     "cost_code": "13-240 - Oxygenation Systems",
     "subcontract_cat": "Landscaping & Irrigation"
-  }, {
+  },
+  {
     "id": 11,
     "trade": "Sheet Metal Worker",
     "cost_code": "1-000 - Purpose",
     "subcontract_cat": "Rebar & Wire Mesh Install"
-  }, {
+  },
+  {
     "id": 12,
     "trade": "Safety Officer",
     "cost_code": "15-050 - Basic Mechanical Materials and Methods",
     "subcontract_cat": "Roofing (Asphalt)"
-  }, {
+  },
+  {
     "id": 13,
     "trade": "Plumber",
     "cost_code": "11-780 - Mortuary Equipment",
     "subcontract_cat": "Temp Fencing, Decorative Fencing and Gates"
-  }, {
+  },
+  {
     "id": 14,
     "trade": "Millwright",
     "cost_code": "11-110 - Commercial Laundry and Dry Cleaning Equipment",
     "subcontract_cat": "Plumbing & Medical Gas"
-  }, {
+  },
+  {
     "id": 15,
     "trade": "Plumber",
     "cost_code": "13-850 - Detection and Alarm",
     "subcontract_cat": "Asphalt Paving"
-  }, {
+  },
+  {
     "id": 16,
     "trade": "Equipment Operator",
     "cost_code": "1-517 - Temporary Telephone",
     "subcontract_cat": "Sitework & Site Utilities"
-  }, {
+  },
+  {
     "id": 17,
     "trade": "Linemen",
     "cost_code": "13-500 - Recording Instrumentation",
     "subcontract_cat": "Ornamental Railings"
-  }, {
+  },
+  {
     "id": 18,
     "trade": "Landscaper",
     "cost_code": "1-904 - Hazardous Materials Removal and Disposal",
     "subcontract_cat": "Masonry & Precast"
-  }, {
+  },
+  {
     "id": 19,
     "trade": "Boilermaker",
     "cost_code": "2-312 - Rough Grading",
     "subcontract_cat": "Prefabricated Aluminum Metal Canopies"
-  }, {
+  },
+  {
     "id": 20,
     "trade": "Laborer",
     "cost_code": "8-800 - Glazing",
     "subcontract_cat": "Framing (Wood)"
-  }, {
+  },
+  {
     "id": 21,
     "trade": "Painter",
     "cost_code": "2-500 - Utility Services",
     "subcontract_cat": "Painting & Vinyl Wall Covering"
-  }, {
+  },
+  {
     "id": 22,
     "trade": "Painter",
     "cost_code": "11-850 - Navigation Equipment",
     "subcontract_cat": "Exterior Signage"
-  }, {
+  },
+  {
     "id": 23,
     "trade": "Boilermaker",
     "cost_code": "2-750 - Concrete Pads and Walks",
     "subcontract_cat": "Structural and Misc Steel (Fabrication)"
-  }, {
+  },
+  {
     "id": 24,
     "trade": "Landscaper",
     "cost_code": "10-350 - Flagpoles",
     "subcontract_cat": "Masonry"
-  }, {
+  },
+  {
     "id": 25,
     "trade": "Equipment Operator",
     "cost_code": "13-160 - Aquariums",
     "subcontract_cat": "Structural & Misc Steel Erection"
-  }, {
+  },
+  {
     "id": 26,
     "trade": "Laborer",
     "cost_code": "15-900 - HVAC Instruments and Controls",
     "subcontract_cat": "Fire Protection"
-  }, {
+  },
+  {
     "id": 27,
     "trade": "Brickmason",
     "cost_code": "13-230 - Digester Covers and Appurtenances",
     "subcontract_cat": "Masonry"
-  }, {
+  },
+  {
     "id": 28,
     "trade": "Glazier",
     "cost_code": "2-820 - Fences and Gates",
     "subcontract_cat": "Hard Tile & Stone"
-  }, {
+  },
+  {
     "id": 29,
     "trade": "Terrazzo",
     "cost_code": "10-290 - Pest Control",
     "subcontract_cat": "EIFS"
-  }, {
+  },
+  {
     "id": 30,
     "trade": "Equipment Operator",
     "cost_code": "2-362 - Termite Control",
     "subcontract_cat": "Landscaping & Irrigation"
-  }, {
+  },
+  {
     "id": 31,
     "trade": "Safety Officer",
     "cost_code": "8-500 - Windows",
     "subcontract_cat": "EIFS"
-  }, {
+  },
+  {
     "id": 32,
     "trade": "Boilermaker",
     "cost_code": "1-514 - Temporary Heating, Cooling and Ventilation",
     "subcontract_cat": "Electrical and Fire Alarm"
-  }, {
+  },
+  {
     "id": 33,
     "trade": "HVAC",
     "cost_code": "13-200 - Storage Tanks",
     "subcontract_cat": "Plumbing & Medical Gas"
-  }, {
+  },
+  {
     "id": 34,
     "trade": "Glazier",
     "cost_code": "2-000 - General",
     "subcontract_cat": "Framing (Wood)"
-  }, {
+  },
+  {
     "id": 35,
     "trade": "Safety Officer",
     "cost_code": "11-280 - Hydraulic Gates and Valves",
     "subcontract_cat": "Casework"
-  }, {
+  },
+  {
     "id": 36,
     "trade": "Brickmason",
     "cost_code": "4-400 - Stone",
     "subcontract_cat": "Electrical and Fire Alarm"
-  }, {
+  },
+  {
     "id": 37,
     "trade": "Plumber",
     "cost_code": "7-700 - Roof Specialties and Accessories",
     "subcontract_cat": "Landscaping & Irrigation"
-  }, {
+  },
+  {
     "id": 38,
     "trade": "Sheet Metal Worker",
     "cost_code": "10-820 - Bathroom Accessories",
     "subcontract_cat": "Waterproofing & Caulking"
-  }, {
+  },
+  {
     "id": 39,
     "trade": "Stucco Mason",
     "cost_code": "11-870 - Agricultural Equipment",
     "subcontract_cat": "Plumbing & Medical Gas"
-  }, {
+  },
+  {
     "id": 40,
     "trade": "Terrazzo",
     "cost_code": "15-800 - Air Distribution",
     "subcontract_cat": "Drilled Shafts"
-  }, {
+  },
+  {
     "id": 41,
     "trade": "Linemen",
     "cost_code": "11-450 - Residential Equipment",
     "subcontract_cat": "Framing (Steel)"
-  }, {
+  },
+  {
     "id": 42,
     "trade": "Electrician",
     "cost_code": "1-600 - Product Requirements (Scope of Work)",
     "subcontract_cat": "Drywall & Acoustical (MOB)"
-  }, {
+  },
+  {
     "id": 43,
     "trade": "Refridgeration",
     "cost_code": "14-200 - Elevators",
     "subcontract_cat": "Casework"
-  }, {
+  },
+  {
     "id": 44,
     "trade": "Cement Mason",
     "cost_code": "6 - Wood and Plastics",
     "subcontract_cat": "Fire Protection"
-  }, {
+  },
+  {
     "id": 45,
     "trade": "Carpenter",
     "cost_code": "1-600 - Product Requirements (Scope of Work)",
     "subcontract_cat": "Soft Flooring and Base"
-  }, {
+  },
+  {
     "id": 46,
     "trade": "Electrician",
     "cost_code": "1-640 - Owner Furnished Products",
     "subcontract_cat": "RF Shielding"
-  }, {
+  },
+  {
     "id": 47,
     "trade": "Equipment Operator",
     "cost_code": "15-200 - Process Piping",
     "subcontract_cat": "Painting & Vinyl Wall Covering"
-  }, {
+  },
+  {
     "id": 48,
     "trade": "Pipefitter",
     "cost_code": "9-500 - Ceilings",
     "subcontract_cat": "Roofing (Metal)"
-  }, {
+  },
+  {
     "id": 49,
     "trade": "Concrete Finisher",
     "cost_code": "8-700 - Hardware",
     "subcontract_cat": "Fire Protection"
-  }, {
+  },
+  {
     "id": 50,
     "trade": "Painter",
     "cost_code": "11-040 - Ecclesiastical Equipment",
     "subcontract_cat": "Structural & Misc Steel Erection"
-  }]
+  },
+  {
+    "id": 51,
+    "trade": "Test",
+    "cost_code": "16-700 - Communications",
+    "subcontract_cat": "Construction Clean and Final Clean"
+  }
+]
