@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-import { getStudents, getEnrolment, getCourses, newStudentsList, newEnrolmentsList, deleteStudent, updateStudents } from './repository.js';
+import { getStudents, getEnrolment, getCourses, newStudentsList, newEnrolmentsList, deleteStudent, updateStudents, deleteEnrolment, deleteCourse } from './repository.js';
 
 const app = express();
 
@@ -73,10 +73,30 @@ app.delete('/deleteItem/:id', (req,res) =>{
     try {
         let {id} = req.params;
         deleteStudent(id);
-        res.status(200).json('Deleted succesfuly');
+        res.status(200).json('Deleted successfuly');
     } catch (error) {
         res.status(500).json({message:error.message});
     }
+});
+
+app.delete('/deleteEnrolment/:studentId/:courseId', (req,res) =>{
+    try {
+        //let {id} = {... req.params};
+        deleteEnrolment(req.params.studentId,req.params.courseId);
+        res.status(200).json('Deleted successfuly');
+    } catch (error) {
+        res.status(500).json({message:error.message});
+    }
+});
+
+app.delete('/deleteCourse/:courseId', (req,res) => {
+    try {
+        deleteCourse(req.params);
+        res.status(200).json('Delete successfuly');
+    } catch (error) {
+        res.status(500).json({message:error.message});
+    }
+
 });
 
 //+++ Put

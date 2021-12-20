@@ -115,6 +115,18 @@ export const saveNewEnrolment = (data) => {
     }
   };
 
+  export const deleteEnrolment = async (studentId,courseId)=>{
+    try {
+      let enrolments = await getEnrolment();
+      enrolments = enrolments.filter(e => e.student_id !== studentId && e.course_id !== courseId)
+
+      await saveNewEnrolment(enrolments);
+    } catch (error) {
+      console.warn(error);
+    }
+
+  }
+
 //--- Courses
 
 export const getCourses = () => {
@@ -129,3 +141,30 @@ export const getCourses = () => {
     });
   });
 };
+
+export const saveNewCourse = (data) => {
+  return new Promise((resolve, reject) => {
+    fs.writeFile("./Data/courses.json", JSON.stringify(data, null, 2), (err) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve("Succeded");
+      }
+    });
+  });
+};
+
+export const deleteCourse = async (courseId) => {
+
+  try {
+    let courses = await getCourses();
+    courses = courses.filter( e => e.course_id !== courseId);
+
+    console.log(courses);
+    //await saveNewCourse(courses);
+
+  } catch (error) {
+    console.warn(error);
+  }
+
+}
