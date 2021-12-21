@@ -1,116 +1,21 @@
 import express from 'express';
+
+import StudentsRoute from "./Routes/StudentsRoute.js"
+import EnrolmentRoute from './Routes/EnrolmentRoute.js';
+import CoursesRoute from './Routes/CoursesRoute.js';
+
 import cors from 'cors';
-import { getStudents, getEnrolment, getCourses, newStudentsList, newEnrolmentsList, deleteStudent, updateStudents, deleteEnrolment, deleteCourse } from './repository.js';
 
 const app = express();
-
-const port = 3500;
+const port = 3000;
 
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 app.use(cors());
-//+++ Getters
-app.get('/students', async (req,res)=>{
-    try {
-        let items = await getStudents();
-        res.status(200).json(items);
-    } catch (error) {
-        res.status(500).json({message:error.message});
-    }
-});
 
-app.get('/enrolment', async (req,res)=>{
-    try {
-        let items = await getEnrolment();
-        res.status(200).json(items);
-    } catch (error) {
-        res.status(500).json({message:error.message});
-    }
-});
+//routes
+app.use('/api/v1/students',StudentsRoute);
+app.use('/api/v1/enrolments',EnrolmentRoute);
+app.use('/api/v1/courses',CoursesRoute);
 
-app.get('/courses', async (req,res)=>{
-    try {
-        let items = await getCourses();
-        res.status(200).json(items);
-    } catch (error) {
-        res.status(500).json({message:error.message});
-    }
-});
-//+++ Posts
-app.post('/postStudents', (req,res)=>{
-    try {
-        let item = req.body;
-        newStudentsList(item);
-        res.status(200).json("Student succesfully added");
-    } catch (error) {
-        res.status(500).json({message:error.message});
-    }
-});
-
-app.post('/postEnrolment', (req,res)=>{
-    try {
-        let item = req.body;
-        newEnrolmentsList(item);
-        res.status(200).json("You've been succesfully enroled");
-    } catch (error) {
-        res.status(500).json({message:error.message});
-    }
-});
-
-app.post('/postCourse', (req,res)=>{
-    try {
-        let item = req.body;
-        newCoursesList(item);
-        res.status(200).json("Course succesfully added");
-    } catch (error) {
-        res.status(500).json({message:error.message});
-    }
-});
-
-//+++ Delete
-
-app.delete('/deleteItem/:id', (req,res) =>{
-    try {
-        let {id} = req.params;
-        deleteStudent(id);
-        res.status(200).json('Deleted successfuly');
-    } catch (error) {
-        res.status(500).json({message:error.message});
-    }
-});
-
-app.delete('/deleteEnrolment/:studentId/:courseId', (req,res) =>{
-    try {
-        //let {id} = {... req.params};
-        deleteEnrolment(req.params.studentId,req.params.courseId);
-        res.status(200).json('Deleted successfuly');
-    } catch (error) {
-        res.status(500).json({message:error.message});
-    }
-});
-
-app.delete('/deleteCourse/:courseId', (req,res) => {
-    try {
-        deleteCourse(req.params);
-        res.status(200).json('Delete successfuly');
-    } catch (error) {
-        res.status(500).json({message:error.message});
-    }
-
-});
-
-//+++ Put
-
-app.put('/updateItem', (req,res)=>{
-    try {
-        let item = req.body;
-        updateStudents(item);
-        res.status(200).json('Updated successfuly');
-    } catch (error) {
-        res.status(500).json({message:error.message});
-    }
-})
-
-
-//+++ Server Listen
 app.listen(port, ()=>console.log("Listenting on port " + port));
