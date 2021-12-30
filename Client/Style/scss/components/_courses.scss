@@ -1,0 +1,37 @@
+.cards-container{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap: 1.5em;
+}
+
+.card{
+    background-color: $themeOrange;
+    color: white;
+    padding: 1.5em;
+    border-radius: 10px;
+    h2{
+        font-size: 21px;
+    }
+}
+
+.newCourse{
+    background-color: $themeOrangeLight;
+    color: $themeOrangeAccent;
+    padding: 2.5em;
+    border-radius: 10px;
+}
+
+@include mq('md'){
+    .cards-container{
+        grid-template-columns: repeat(3,1fr);
+    }
+}
+
+@include mq("lg"){ 
+    
+    .cards-container{
+        grid-template-columns: repeat(4,1fr);
+    }
+
+
+}

@@ -18,18 +18,10 @@ html,body{
                              "main";
     }
 
-    @include mq("lg"){
-        grid-template-columns: 300px 1fr;
-        grid-template-areas: "nav main";
-    }
-}
-
-a{
-    text-decoration: none;
-}
-
-ul{
-    list-style: none;
+    // @include mq("lg"){
+    //     grid-template-columns: 300px 1fr;
+    //     grid-template-areas: "nav main";
+    // }
 }
 
 

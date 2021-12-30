@@ -1,48 +1,9 @@
 nav {
-  background-color: $themeOrange;
+  background-color: $themeOrangeAccent;
   color: white;
 
-  @include flexy($just: center, $dir: column);
-
-  .title-img {
-    display: none;
-    background-color: $themeOrangeAccent;
-    width: 10em;
-    height: 10em;
-    margin: 0 auto;
-    position: relative;
-    border-radius: 50%;
-    img {
-      border-radius: 50%;
-      width: 9em;
-      height: 9em;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-  }
-
-  h1 {
-    padding-left: 0.4em;
-  }
-
-  a {
-    color: white;
-  }
-  ul > li {
-    text-align: center;
-    margin: 0 auto;
-    padding: 0.5em;
-    font-size: 1.5em;
-    &:hover {
-      background-color: $themeOrangeAccent;
-      cursor: pointer;
-    }
-    &:active {
-      background-color: $themeOrange;
-    }
-  }
+  @include flexy($just: space-between, $dir: row, $align: center);
+  padding: 0 1em;
 
   .toggle-btn {
     position: absolute;
@@ -94,19 +55,5 @@ nav {
   }
 
   @include mq("lg") {
-    .toggle-btn {
-      display: none;
-    }
-    h1 {
-      text-align: center;
-      padding-left: 0px;
-    }
-    .title-img {
-      display: block;
-    }
-
-    .nav-items {
-      display: block;
-    }
   }
 }
