@@ -1,0 +1,33 @@
+.course-box{
+    margin: 1em auto;
+    box-shadow: 1px 1px 5px $themeOrange;
+
+    width: fit-content;
+    text-align: center;
+    img{
+        
+        margin-bottom: 1em;
+    }
+    padding-bottom: 1em;
+    h4,p{
+        margin: 1em 0;
+    }
+}
+
+.fcnBtn{
+    @include flexy();
+    background-color: $themeOrangeLight;
+    padding: .5em;
+    .navBtn{
+        margin: .3em;
+        background-color: $themeOrange;
+        color: white;
+        padding: .5em;
+        border-radius: 10px;
+        h2{
+            font-size: 21px;
+        }
+        text-align: center;
+        @extend %clickEffect;
+    }
+}

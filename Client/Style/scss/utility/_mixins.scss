@@ -27,6 +27,16 @@
   }
 }
 
+%clickEffect{
+  cursor: pointer;
+  &:hover{
+    box-shadow: 1px 1px 3px black;
+}
+  &:active{
+    box-shadow: inset 1px 1px 3px black;
+}
+}
+
 %debuggBorder{
   border: 2px solid blue;
 }

@@ -6,6 +6,16 @@ Layout
 Components
 */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+.fcnBtn .navBtn, .newCourse, .card, .card-- {
+  cursor: pointer;
+}
+.fcnBtn .navBtn:hover, .newCourse:hover, .card:hover, .card--:hover {
+  box-shadow: 1px 1px 3px black;
+}
+.fcnBtn .navBtn:active, .newCourse:active, .card:active, .card--:active {
+  box-shadow: inset 1px 1px 3px black;
+}
+
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -361,7 +371,7 @@ html, body {
   grid-template-rows: 1fr;
   font-family: "Montserrat", sans-serif;
 }
-@media (min-width: 100px) {
+@media (min-width: 375px) {
   #root {
     grid-template-areas: "nav" "main";
   }
@@ -405,18 +415,22 @@ nav .toggle-btn:active {
 nav .nav-items {
   display: none;
 }
+nav .elements > * {
+  padding: 5px;
+  cursor: pointer;
+}
 nav .active {
   display: block;
 }
 main {
-  padding-top: 1em;
-  margin: 10px;
   display: flex;
   flex-direction: column;
   justify-content: start;
 }
 
 .container {
+  padding: 1em;
+  margin: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -427,19 +441,12 @@ main {
   background-color: #7B6799;
   color: white;
   padding: 1.5em;
-  width: 20em;
+  width: 15em;
   border-radius: 10px;
   text-align: center;
 }
 .card-- h2 {
   font-size: 21px;
-}
-.card--:hover {
-  cursor: pointer;
-  background-color: #60517A;
-}
-.card--:active {
-  background-color: #7B6799;
 }
 
 @media (min-width: 768px) {
@@ -449,16 +456,23 @@ main {
   }
 
   .card-- {
-    margin: 5em 3em 1em;
+    width: 20em;
   }
 }
+.container-courses {
+  padding-top: 1em;
+  margin: 10px;
+}
+
 .cards-container {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
   grid-gap: 1.5em;
+  padding: 0.5em 0;
 }
 
 .card {
+  cursor: pointer;
   background-color: #7B6799;
   color: white;
   padding: 1.5em;
@@ -469,12 +483,19 @@ main {
 }
 
 .newCourse {
+  cursor: pointer;
   background-color: #DCD8E4;
   color: #60517A;
   padding: 2.5em;
   border-radius: 10px;
 }
 
+@media (min-width: 375px) {
+  .cards-container {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1.5em;
+  }
+}
 @media (min-width: 768px) {
   .cards-container {
     grid-template-columns: repeat(3, 1fr);
@@ -484,6 +505,36 @@ main {
   .cards-container {
     grid-template-columns: repeat(4, 1fr);
   }
+}
+.course-box {
+  margin: 1em auto;
+  box-shadow: 1px 1px 5px #7B6799;
+  width: fit-content;
+  text-align: center;
+  padding-bottom: 1em;
+}
+.course-box img {
+  margin-bottom: 1em;
+}
+.course-box h4, .course-box p {
+  margin: 1em 0;
+}
+
+.fcnBtn {
+  display: flex;
+  background-color: #DCD8E4;
+  padding: 0.5em;
+}
+.fcnBtn .navBtn {
+  margin: 0.3em;
+  background-color: #7B6799;
+  color: white;
+  padding: 0.5em;
+  border-radius: 10px;
+  text-align: center;
+}
+.fcnBtn .navBtn h2 {
+  font-size: 21px;
 }
 
 /*# sourceMappingURL=style.css.map */

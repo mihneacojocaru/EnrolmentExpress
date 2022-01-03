@@ -50,6 +50,10 @@ nav {
     display: none;
   }
 
+  .elements > *{
+    padding: 5px;
+    cursor: pointer;
+  }
   .active {
     display: block;
   }

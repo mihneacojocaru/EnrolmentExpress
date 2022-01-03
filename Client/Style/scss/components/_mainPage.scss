@@ -1,35 +1,29 @@
-.container{
-   @include flexy($align:center,$dir:column);
+.container {
+  padding: 1em;
+  margin: 10px;
+  @include flexy($align: center, $dir: column);
 }
 
-.card--{
-    margin: 1em;
-    background-color: $themeOrange;
-    color: white;
-    padding: 1.5em;
-    width: 20em;
-    border-radius: 10px;
-    h2{
-        font-size: 21px;
-    }
-    text-align: center;
-
-    &:hover{
-        cursor: pointer;
-        background-color: $themeOrangeAccent;
-    }
-    &:active{
-        background-color: $themeOrange;
-    }
-
+.card-- {
+  margin: 1em;
+  background-color: $themeOrange;
+  color: white;
+  padding: 1.5em;
+  width: 15em;
+  border-radius: 10px;
+  h2 {
+    font-size: 21px;
+  }
+  text-align: center;
+  @extend %clickEffect;
 }
 
-@include mq('md'){
-    .container{
-        justify-content: center;
-        flex-direction: row;
-    }
-    .card--{
-        margin: 5em 3em 1em;
-    }
+@include mq("md") {
+  .container {
+    justify-content: center;
+    flex-direction: row;
+  }
+  .card--{
+      width: 20em;
+  }
 }

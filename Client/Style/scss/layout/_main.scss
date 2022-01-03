@@ -1,8 +1,5 @@
 main{
     
-    padding-top: 1em;
-    margin: 10px;
-
     @include flexy($just: start, $dir: column);
 
 }
