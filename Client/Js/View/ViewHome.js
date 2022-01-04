@@ -18,7 +18,8 @@ export default class ViewHome{
                 this.pageBuilder('Courses');
                 this.courses();
             }else if(obj.id == 'students'){
-                console.log('students');
+                this.pageBuilder('Students');
+                this.students();
             }else if(obj.id == 'goBack'){
                 this.pageBuilder('Enrolment&#x2122;');
                 this.homePage();
@@ -57,8 +58,8 @@ export default class ViewHome{
                                 </div>
                             </div>`;
         main.addEventListener('click',this.eventHandler);
-        // let btn = document.getElementById('courses');
-        // btn.click();
+        let btn = document.getElementById('students');
+        btn.click();
     }
 
     courses = () => {
@@ -115,4 +116,61 @@ export default class ViewHome{
                             </div>`;
         main.addEventListener('click',this.eventHandler);
     }
+
+    students = () => {
+        let main = document.querySelector('main');
+        main.innerHTML = '';
+        main.innerHTML = `
+                            <div class="fcnBtn">
+                                <div class="navBtn">
+                                    <h2>Add Student</h2>
+                                </div>
+                                <div class="navBtn">
+                                    <h2>Enrolments</h2>
+                                </div>
+                                <div id="goBack" class="navBtn">
+                                    <h2 id="goBack">Return to Main</h2>
+                                </div>
+                            </div>
+                            <div class="students-table">
+                                <h2>All Books</h2>
+                                <table>
+                                    <thead>
+                                        <th>Id</th>
+                                        <th>First Name</th>
+                                        <th>Last Name</th>
+                                        <th>Date of Birth</th>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Alois</td>
+                                            <td>Veldens</td>
+                                            <td>02/22/2001</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Alois</td>
+                                            <td>Veldens</td>
+                                            <td>02/22/2001</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Alois</td>
+                                            <td>Veldens</td>
+                                            <td>02/22/2001</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Alois</td>
+                                            <td>Veldens</td>
+                                            <td>02/22/2001</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                                `;
+        main.addEventListener('click', this.eventHandler);
+    }
+
 }
