@@ -20,15 +20,28 @@ export default class ViewHome{
             }else if(obj.id == 'students'){
                 this.pageBuilder('Students');
                 this.students();
-            }else if(obj.id == 'goBack'){
-                this.pageBuilder('Enrolment&#x2122;');
-                this.homePage();
+            }else if(obj.id == 'addStudent'){
+                this.addStudent();
             }else if(obj.id == 'course1'){
                 this.pageBuilder('Course Details');
                 this.courseDetails();
+            }else if(obj.id == 'enrolments'){
+                this.pageBuilder('Enrolments');
+                this.enrolments();
+            }else if(obj.id == 'goBack'){
+                this.pageBuilder('Enrolment&#x2122;');
+                this.homePage();
             }else if(obj.id == 'goBack2'){
                 this.pageBuilder('Courses');
                 this.courses();
+            }else if(obj.id == 'cancel'){
+                this.pageBuilder('Students');
+                this.students();
+            }else if(obj.id == 'addEnrolment'){
+                this.addEnrolment();
+            }else if(obj.id == 'cancel2'){
+                this.pageBuilder('Enrolments');
+                this.enrolments();
             }
     }
  
@@ -36,7 +49,6 @@ export default class ViewHome{
         return `<nav>
                     <h1 class="homeLink">${item}</h1>
                     <div class="elements">
-                        <span>Sign Up</span>
                         <span>Sign In</span>
                     </div>
                 </nav>`;
@@ -58,8 +70,8 @@ export default class ViewHome{
                                 </div>
                             </div>`;
         main.addEventListener('click',this.eventHandler);
-        let btn = document.getElementById('students');
-        btn.click();
+        // let btn = document.getElementById('students');
+        // btn.click();
     }
 
     courses = () => {
@@ -122,18 +134,19 @@ export default class ViewHome{
         main.innerHTML = '';
         main.innerHTML = `
                             <div class="fcnBtn">
-                                <div class="navBtn">
-                                    <h2>Add Student</h2>
+                                <div id="addStudent" class="navBtn">
+                                    <h2 id="addStudent">Add Student</h2>
                                 </div>
-                                <div class="navBtn">
-                                    <h2>Enrolments</h2>
+                                <div id="enrolments" class="navBtn">
+                                    <h2 id="enrolments">Enrolments</h2>
                                 </div>
                                 <div id="goBack" class="navBtn">
                                     <h2 id="goBack">Return to Main</h2>
                                 </div>
                             </div>
-                            <div class="students-table">
-                                <h2>All Books</h2>
+                            <div class="addSection"></div>
+                            <div class="generic-table">
+                                <h2>Student List</h2>
                                 <table>
                                     <thead>
                                         <th>Id</th>
@@ -154,23 +167,96 @@ export default class ViewHome{
                                             <td>Veldens</td>
                                             <td>02/22/2001</td>
                                         </tr>
+                                    </tbody>
+                                </table>
+                            </div>`;
+        main.addEventListener('click', this.eventHandler);
+        // let btn = document.getElementById('addStudent');
+        // btn.click();
+    }
+
+    enrolments = () => {
+        let main = document.querySelector('main');
+        main.innerHTML = '';
+        main.innerHTML = `
+                            <div class="fcnBtn">
+                                <div id="addEnrolment" class="navBtn">
+                                    <h2 id="addEnrolment">Add Enrolment</h2>
+                                </div>
+                                <div id="students" class="navBtn">
+                                    <h2 id="students">Return to Students</h2>
+                                </div>
+                            </div>
+                            <div class="addSection"></div>
+                            <div class="generic-table">
+                                <h2>Course Enrolments</h2>
+                                <table>
+                                    <thead>
+                                        <th>Student Id</th>
+                                        <th>Course Id</th>
+                                        <th>Created at</th>
+                                        <th>Option</th>
+                                    </thead>
+                                    <tbody>
                                         <tr>
                                             <td>1</td>
-                                            <td>Alois</td>
-                                            <td>Veldens</td>
-                                            <td>02/22/2001</td>
+                                            <td>MICTW</td>
+                                            <td>2021-11-09 18:07:02</td>
+                                            <td>
+                                                <button>Update</button>
+                                                <button>Delete</button>
+                                            </td>
                                         </tr>
                                         <tr>
-                                            <td>1</td>
-                                            <td>Alois</td>
-                                            <td>Veldens</td>
-                                            <td>02/22/2001</td>
+                                            <td>2</td>
+                                            <td>CLNSE</td>
+                                            <td>2021-01-16 05:58:50</td>
+                                            <td>
+                                                <button>Update</button>
+                                                <button>Delete</button>
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
                                 `;
         main.addEventListener('click', this.eventHandler);
+    }
+
+    addStudent = () => {
+        let addSection = document.querySelector('.addSection');
+        addSection.innerHTML = `
+                                <h2>Add new student</h2>
+                                <form action="#">
+                                    <label for="fName">Frist Name</label>
+                                    <input type="text" name="fName">
+                                    <label for="lName">Last Name</label>
+                                    <input type="text" name="lName">
+                                    <label for="dOB">Date of Birth</label>
+                                    <input type="text" name="dOB">
+                                </form>
+                                <div class="buttons">
+                                    <button id="addStudent">Add Student</button>
+                                    <button id="cancel">Cancel</button>
+                                </div>`;
+        addSection.addEventListener('click',this.eventHandler);
+    }
+
+    addEnrolment = () => {
+        let addSection = document.querySelector('.addSection');
+        addSection.innerHTML = `
+                                <h2>Enrol new student</h2>
+                                <form action="#">
+                                    <label for="studentId">Student Id</label>
+                                    <input type="text" name="studentId">
+                                    <label for="courseId">Course Id</label>
+                                    <input type="text" name="courseId">
+                                </form>
+                                <div class="buttons">
+                                    <button id="addEnrolment">Submit Enrolment</button>
+                                    <button id="cancel2">Cancel</button>
+                                </div>`;
+        addSection.addEventListener('click',this.eventHandler);
     }
 
 }

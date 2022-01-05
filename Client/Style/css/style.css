@@ -537,13 +537,13 @@ main {
   font-size: 21px;
 }
 
-.students-table {
+.generic-table {
   margin: 1em;
 }
-.students-table h2 {
+.generic-table h2 {
   margin: 1em 0;
 }
-.students-table table {
+.generic-table table {
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   border: 2px solid #ddd;
@@ -552,50 +552,70 @@ main {
   padding: 20px;
   width: 100%;
 }
-.students-table td,
-.students-table th {
+.generic-table td,
+.generic-table th {
   border: 1px solid #60517A;
   padding: 8px;
 }
-.students-table td:nth-child(6) {
+.generic-table td:nth-child(6) {
   text-align: center;
 }
-.students-table td:nth-child(6) button {
+.generic-table td:nth-child(6) button {
   padding: 5px;
   margin: 2px;
   color: white;
   border: 1px solid #7b868a;
   border-radius: 5px;
 }
-.students-table td:nth-child(6) button:hover {
+.generic-table td:nth-child(6) button:hover {
   cursor: pointer;
   box-shadow: 1px 1px 5px black;
 }
-.students-table td:nth-child(6) button:first-child {
+.generic-table td:nth-child(6) button:first-child {
   background-color: #3997BD;
 }
-.students-table td:nth-child(6) button:nth-child(2) {
+.generic-table td:nth-child(6) button:nth-child(2) {
   background-color: #7B6799;
 }
-.students-table td:nth-child(6) button:active {
+.generic-table td:nth-child(6) button:active {
   color: #3b4446;
   background-color: #eff2f3;
 }
-.students-table tr:nth-child(even) {
+.generic-table tr:nth-child(even) {
   background-color: #f2f2f2;
 }
-.students-table tr:nth-child(odd) {
+.generic-table tr:nth-child(odd) {
   background-color: #fff;
 }
-.students-table tr:hover {
+.generic-table tr:hover {
   background-color: #ddd;
 }
-.students-table th {
+.generic-table th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
   background-color: #7B6799;
   color: white;
+}
+
+.addSection {
+  margin: 0.5em;
+  padding: 2em 5px 0.5em 5px;
+}
+.addSection form {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  margin-top: 1em;
+}
+.addSection form * {
+  padding: 5px 0;
+}
+.addSection .buttons {
+  margin: 10px 0;
+}
+.addSection .buttons * {
+  margin-right: 10px;
 }
 
 /*# sourceMappingURL=style.css.map */
