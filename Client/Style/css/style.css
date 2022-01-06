@@ -380,11 +380,19 @@ html, body {
 nav {
   background-color: #60517A;
   color: white;
+  position: sticky;
+  top: 0;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   padding: 0 1em;
+}
+nav h1:hover {
+  cursor: pointer;
+}
+nav h1:active {
+  transform: scale(0.98);
 }
 nav .toggle-btn {
   position: absolute;
@@ -524,6 +532,8 @@ main {
   display: flex;
   background-color: #DCD8E4;
   padding: 0.5em;
+  position: sticky;
+  top: 5em;
 }
 .fcnBtn .navBtn {
   margin: 0.3em;
@@ -598,23 +608,23 @@ main {
   color: white;
 }
 
-.addSection {
+.addSectionStyle {
   margin: 0.5em;
   padding: 2em 5px 0.5em 5px;
 }
-.addSection form {
+.addSectionStyle form {
   display: flex;
   flex-direction: column;
   max-width: 500px;
   margin-top: 1em;
 }
-.addSection form * {
+.addSectionStyle form * {
   padding: 5px 0;
 }
-.addSection .buttons {
+.addSectionStyle .buttons {
   margin: 10px 0;
 }
-.addSection .buttons * {
+.addSectionStyle .buttons * {
   margin-right: 10px;
 }
 

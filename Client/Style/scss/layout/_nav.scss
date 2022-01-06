@@ -1,9 +1,19 @@
 nav {
   background-color: $themeOrangeAccent;
   color: white;
-
+  position: sticky;
+  top: 0;
   @include flexy($just: space-between, $dir: row, $align: center);
   padding: 0 1em;
+
+  h1{
+    &:hover{
+      cursor: pointer;
+    }
+    &:active{
+      transform: scale(0.98);
+    }
+  }
 
   .toggle-btn {
     position: absolute;

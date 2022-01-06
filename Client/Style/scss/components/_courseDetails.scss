@@ -18,6 +18,8 @@
     @include flexy();
     background-color: $themeOrangeLight;
     padding: .5em;
+    position: sticky;
+    top: 5em;
     .navBtn{
         margin: .3em;
         background-color: $themeOrange;

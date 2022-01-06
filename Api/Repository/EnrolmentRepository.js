@@ -61,7 +61,7 @@ export default class EnrolmentRepository {
           enrolments[i].student_id = item.student_id;
           enrolments[i].course_id = item.course_id;
         }
-    }
+      }
         await this.saveNewEnrolment(enrolments);
     } catch (error) {
       console.warn(error);
