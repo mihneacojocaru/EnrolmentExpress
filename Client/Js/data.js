@@ -16,6 +16,8 @@ export default class Data{
         return fetch(url, options);
     }
 
+    //+++ GET
+
     async getCourses(){
         try {
             const response = await this.api('http://localhost:3000/api/v1/courses');
@@ -53,6 +55,39 @@ export default class Data{
             } else {
                 return Promise.reject('error');
             }
+        } catch (error) {
+            return Promise.reject(error);
+        }
+    }
+
+    //+++ PUT
+
+    async updateStudent(body){
+        try {
+            const response = await this.api(`http://localhost:3000/api/v1/students/`,'PUT',body);
+            return response.json();
+        } catch (error) {
+            return Promise.reject(error);
+        }
+    }
+
+    //+++ DELETE
+
+    async deleteStudent(id){
+        try {
+            const response = await this.api(`http://localhost:3000/api/v1/students/${id}`,'DELETE')
+            return response.json();
+        } catch (error) {
+            return Promise.reject(error);
+        }
+    }
+
+    //+++
+
+    async postStudent(body){
+        try {
+            const response = await this.api('http://localhost:3000/api/v1/students','POST',body);
+            return response.json();
         } catch (error) {
             return Promise.reject(error);
         }

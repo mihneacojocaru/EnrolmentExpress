@@ -5,6 +5,7 @@ export default class ViewHome{
         this.root = document.getElementById('root');
         this.pageBuilder('Enrolment&#x2122;');
         this.homePage();
+        this.object = {};
     }
 
     pageBuilder = (item) => {
@@ -40,6 +41,8 @@ export default class ViewHome{
                 this.pageBuilder('Courses');
                 this.courses();
                 this.populateCourses();
+            }else if(obj.id == 'addStBtn'){
+                this.postStudent(obj);
             }else if(obj.id == 'cancel'){
                 this.pageBuilder('Students');
                 this.students();
@@ -50,6 +53,12 @@ export default class ViewHome{
                 this.pageBuilder('Enrolments');
                 this.enrolments();
                 this.populateEnrolmentTable();
+            }else if(obj.id == 'updateStBtn'){
+                this.updateStudent(obj);
+            }else if(obj.id == 'saveStBtn'){
+                this.updateStudent(obj);
+            }else if(obj.id == 'deleteStBtn'){
+                this.deleteStudent(obj);
             }
     }
 
@@ -87,7 +96,7 @@ export default class ViewHome{
                                 </div>
                             </div>`;
         main.addEventListener('click',this.eventHandler);
-        // let btn = document.getElementById('courses');
+        // let btn = document.getElementById('students');
         // btn.click();
     }
 
@@ -167,7 +176,7 @@ export default class ViewHome{
                                 </table>
                             </div>`;
         main.addEventListener('click', this.eventHandler);
-        // let btn = document.getElementById('enrolments');
+        // let btn = document.getElementById('addStudent');
         // btn.click();
     }
 
@@ -214,11 +223,10 @@ export default class ViewHome{
                                         <input type="text" name="dOB">
                                     </form>
                                     <div class="buttons">
-                                        <button id="addStudent">Add Student</button>
+                                        <button id="addStBtn">Add Student</button>
                                         <button id="cancel">Cancel</button>
                                     </div>
                                 </div>`;
-        addSection.addEventListener('click',this.eventHandler);
     }
 
     addEnrolment = () => {
@@ -236,7 +244,6 @@ export default class ViewHome{
                                         <button id="cancel2">Cancel</button>
                                     </div>
                                 </div>`;
-        addSection.addEventListener('click',this.eventHandler);
     }
 
     //+++ API Functions
@@ -272,8 +279,39 @@ export default class ViewHome{
         }
     }
 
+    putStudent = async (body) =>{
+        try {
+            const data = new Data();
+            const updateStudent = await data.updateStudent(body);
+            return updateStudent;
+        } catch (error) {
+            console.warn(error);
+        }
+    }
+
+    deleteStudentApi = async (id) => {
+        try {
+            const data = new Data();
+            const del = await data.deleteStudent(id);
+            return del;
+        } catch (error) {
+            console.warn(error);
+        }
+    }
+
+    postStudentApi = async (body) => {
+        try {
+            const data = new Data();
+            const postStudent = await data.postStudent(body);
+            return postStudent;
+        } catch (error) {
+            console.warn(error);
+        }
+    }
+
     //+++ HTML Functions
 
+//--- Courses
     populateCourses = async () => {
         try {
             const courses = await this.getCourses();
@@ -339,12 +377,14 @@ export default class ViewHome{
         }
     }
 
+//--- Students
     populateStudentTable = async () => {
         try {
             const students = await this.getStudents();
             students.forEach(element => {
                 this.createStudentRow(element);
             });
+
         } catch (error) {
             console.warn(error);
         }
@@ -357,13 +397,80 @@ export default class ViewHome{
                         <td>${obj.last_name}</td>
                         <td>${obj.date_of_birth}</td>
                         <td>
-                            <button id="updateStudent">Update</button>
-                            <button id="deleteStudent">Delete</button>
+                            <button id="updateStBtn">Update</button>
+                            <button id="deleteStBtn">Delete</button>
                         </td>
                     </tr>`;
         let tBody = document.getElementById('studentListTable');   
         tBody.innerHTML += tRow;
     }
+
+    deleteStudent = async (obj) => {
+        let id = obj.parentElement.parentElement.children[0].textContent;
+
+        await this.deleteStudentApi(parseInt(id));
+
+        this.pageBuilder('Students');
+        this.students();
+        this.populateStudentTable();
+    }
+
+    updateStudent = async (obj) => {
+        if(obj.id == 'updateStBtn'){
+           let id = obj.parentElement.parentElement.children[0];
+           let fName = obj.parentElement.parentElement.children[1];
+           let lName = obj.parentElement.parentElement.children[2];
+           let date = obj.parentElement.parentElement.children[3];
+           
+           this.object.id = parseInt(id.textContent);
+           this.object.first_name = fName.textContent;
+           this.object.last_name = lName.textContent;
+           this.object.date_of_birth = date.textContent;
+
+           fName.innerHTML = `<input id="fName" class="updateInput" type="text" value="${this.object.first_name}"></input>`;
+           lName.innerHTML = `<input id="lName" class="updateInput" type="text" value="${this.object.last_name}"></input>`;
+           date.innerHTML = `<input id="dob" class="updateInput" type="text" value="${this.object.date_of_birth}"></input>`;
+
+           obj.textContent = "Save";
+           obj.id = "saveStBtn";
+        }else if(obj.id == 'saveStBtn'){
+            let fName = document.getElementById('fName');
+            let lName = document.getElementById('lName');
+            let date = document.getElementById('dob');
+
+            this.object.first_name = fName.value.trim();
+            this.object.last_name = lName.value.trim();
+            this.object.date_of_birth = date.value.trim();
+
+            await this.putStudent(this.object);
+
+            this.pageBuilder('Students');
+            this.students();
+            await this.populateStudentTable();
+        }
+    }
+
+    postStudent = async (obj) => {
+        let fName = obj.parentElement.parentElement.children[1].children[1];
+        let lName = obj.parentElement.parentElement.children[1].children[3];
+        let date = obj.parentElement.parentElement.children[1].children[5];
+
+        let object = {};
+        object.first_name = fName.value;
+        object.last_name = lName.value;
+        object.date_of_birth = date.value;
+
+        await this.postStudentApi(object);
+
+        fName.value = '';
+        lName.value = '';
+        date.value = '';
+
+        this.pageBuilder('Students');
+        this.students();
+        this.populateStudentTable();
+    }
+//--- Enrolments
     
     populateEnrolmentTable = async () => {
         try {
@@ -390,5 +497,7 @@ export default class ViewHome{
         let tBody = document.getElementById('enrolmentBody');
         tBody.innerHTML += tRow;
     }
+
+
 
 }
