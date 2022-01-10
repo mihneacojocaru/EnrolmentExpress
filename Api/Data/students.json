@@ -1,5 +1,17 @@
 [
   {
+    "id": 1,
+    "first_name": "Aloïs",
+    "last_name": "Veldens",
+    "date_of_birth": "02/22/2001"
+  },
+  {
+    "id": 2,
+    "first_name": "Méryl",
+    "last_name": "Comello",
+    "date_of_birth": "02/22/1999"
+  },
+  {
     "id": 3,
     "first_name": "Marlène",
     "last_name": "Zavattiero",
@@ -286,41 +298,5 @@
     "first_name": "Séverine",
     "last_name": "Aupol",
     "date_of_birth": "06/13/1999"
-  },
-  {
-    "id": 51,
-    "first_name": "Jane",
-    "last_name": "Doe",
-    "date_of_birth": "12/12/2001"
-  },
-  {
-    "id": 52,
-    "first_name": "Test 3",
-    "last_name": "Updated",
-    "date_of_birth": "12/12/2000"
-  },
-  {
-    "id": 53,
-    "first_name": "John",
-    "last_name": "Doe",
-    "date_of_birth": "12/12/2001"
-  },
-  {
-    "id": 54,
-    "first_name": "Aloïs",
-    "last_name": "Veldenjjqwrqw",
-    "date_of_birth": "12/12/1990"
-  },
-  {
-    "id": 55,
-    "first_name": "test",
-    "last_name": "Veldens",
-    "date_of_birth": "20/12/1990"
-  },
-  {
-    "id": 56,
-    "first_name": "Test 3",
-    "last_name": "VeldensT",
-    "date_of_birth": "20/12/1990"
   }
 ]

@@ -498,6 +498,31 @@ export default class ViewHome{
         tBody.innerHTML += tRow;
     }
 
+//--- SignIn
+
+    signIn = () => {
+        let content = `
+        <div class="signIn">
+            <div class="addSectionStyle">
+                <h2>Sign In</h2>
+                <form action="#">
+                    <label for="fName">Username</label>
+                    <input type="text" name="fName">
+                    <label for="lName">Password</label>
+                    <input type="password" name="lName">
+                </form>
+                <div class="buttons">
+                    <button id="cancel2">Sign In</button>
+                    <button id="cancel2">Cancel</button>
+                </div>
+            </div>
+        </div>
+        `;
+        let main = document.querySelector('main');
+        main.innerHTML = '';
+        main.innerHTML = content;
+        main.addEventListener('click',this.eventHandler);
+    }
 
 
 }
