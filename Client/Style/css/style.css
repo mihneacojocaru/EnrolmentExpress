@@ -6,13 +6,13 @@ Layout
 Components
 */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
-.fcnBtn .navBtn, .newCourse, .card, .card-- {
+.addSectionStyle .buttons button, .fcnBtn .navBtn, .newCourse, .card, .card-- {
   cursor: pointer;
 }
-.fcnBtn .navBtn:hover, .newCourse:hover, .card:hover, .card--:hover {
+.addSectionStyle .buttons button:hover, .fcnBtn .navBtn:hover, .newCourse:hover, .card:hover, .card--:hover {
   box-shadow: 1px 1px 3px black;
 }
-.fcnBtn .navBtn:active, .newCourse:active, .card:active, .card--:active {
+.addSectionStyle .buttons button:active, .fcnBtn .navBtn:active, .newCourse:active, .card:active, .card--:active {
   box-shadow: inset 1px 1px 3px black;
 }
 
@@ -609,23 +609,60 @@ main {
 }
 
 .addSectionStyle {
-  margin: 0.5em;
-  padding: 2em 5px 0.5em 5px;
+  margin: 1em;
+  border: 1px solid #f0f0f0;
+  border-radius: 5px;
+  max-width: 380px;
+  background-color: white;
+}
+.addSectionStyle h2 {
+  color: #60517A;
+  background-color: #f0f0f0;
+  border-radius: 4px 4px 0 0;
+  padding: 0.5em;
 }
 .addSectionStyle form {
   display: flex;
   flex-direction: column;
-  max-width: 500px;
-  margin-top: 1em;
+  padding: 0.8em;
 }
 .addSectionStyle form * {
-  padding: 5px 0;
+  margin: 5px 0;
+  color: #60517A;
+}
+.addSectionStyle form input {
+  border-color: #60517A;
+  border: 1px solid;
+  border-radius: 2px;
+  padding: 5px;
 }
 .addSectionStyle .buttons {
-  margin: 10px 0;
+  margin-bottom: 10px;
+  text-align: center;
 }
-.addSectionStyle .buttons * {
-  margin-right: 10px;
+.addSectionStyle .buttons button {
+  min-width: calc(100% - 1.8em);
+  margin: 5px 0;
+  background-color: #7B6799;
+  color: white;
+  padding: 5px;
+  border: 1px solid #60517A;
+  border-radius: 2px;
+}
+.addSectionStyle .buttons button:nth-child(2) {
+  background-color: #60517A;
+}
+
+.signIn {
+  padding-top: 5em;
+  padding-left: 5px;
+  padding-right: 5px;
+  width: 100%;
+  height: calc(100vh - 80px);
+  background-color: #7B6799;
+}
+.signIn div {
+  margin: 0 auto;
 }
 
 /*# sourceMappingURL=style.css.map */

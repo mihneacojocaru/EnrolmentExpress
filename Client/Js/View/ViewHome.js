@@ -11,7 +11,6 @@ export default class ViewHome{
     pageBuilder = (item) => {
         this.root.innerHTML = '';
         this.root.innerHTML += this.nav(item);
-
         this.root.innerHTML += this.main();
     }
 
@@ -41,6 +40,9 @@ export default class ViewHome{
                 this.pageBuilder('Courses');
                 this.courses();
                 this.populateCourses();
+            }else if(obj.id == 'cancel3'){
+                this.pageBuilder('Enrolment&#x2122;');
+                this.homePage();
             }else if(obj.id == 'addStBtn'){
                 this.postStudent(obj);
             }else if(obj.id == 'cancel'){
@@ -66,7 +68,7 @@ export default class ViewHome{
         return `<nav>
                     <h1 id="toMain" class="homeLink">${item}</h1>
                     <div class="elements">
-                        <span>Sign In</span>
+                        <span id="signIn">Sign In</span>
                     </div>
                 </nav>`;
     }
@@ -76,11 +78,21 @@ export default class ViewHome{
     }
 
     returnHome = () =>{
-        let navBtn = document.querySelector('#toMain');
-        navBtn.addEventListener('click',()=>{
+        let navBtn = document.querySelector('nav');
+        navBtn.addEventListener('click',this.navFunctions);
+    }
+
+    navFunctions = (e) => {
+        let obj = e.target;
+        if(obj.id == 'toMain'){
             this.pageBuilder('Enrolment&#x2122;');
             this.homePage();
-        });
+        }else if(obj.id == 'signIn'){
+            console.log('test');
+            this.pageBuilder('Enrolment&#x2122;');
+            this.signIn();
+        }
+
     }
 
     homePage = () => {
@@ -512,8 +524,8 @@ export default class ViewHome{
                     <input type="password" name="lName">
                 </form>
                 <div class="buttons">
-                    <button id="cancel2">Sign In</button>
-                    <button id="cancel2">Cancel</button>
+                    <button id="cancel3">Sign In</button>
+                    <button id="cancel3">Cancel</button>
                 </div>
             </div>
         </div>
@@ -523,6 +535,4 @@ export default class ViewHome{
         main.innerHTML = content;
         main.addEventListener('click',this.eventHandler);
     }
-
-
 }
