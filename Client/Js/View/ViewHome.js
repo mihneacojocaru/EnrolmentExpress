@@ -22,9 +22,7 @@ export default class ViewHome{
                 this.courses();
                 this.populateCourses();
             }else if(obj.id == 'students'){
-                this.pageBuilder('Students');
-                this.students();
-                this.populateStudentTable();
+                this.onStudentPageClick();
             }else if(obj.id == 'addStudent'){
                 this.addStudent();
             }else if(obj.id == 'course1'){
@@ -61,6 +59,8 @@ export default class ViewHome{
                 this.updateStudent(obj);
             }else if(obj.id == 'deleteStBtn'){
                 this.deleteStudent(obj);
+            }else if(obj.id == 'updateEnrolBtn'){
+                this.updateEnrollment(obj);
             }
     }
 
@@ -390,6 +390,14 @@ export default class ViewHome{
     }
 
 //--- Students
+
+    onStudentPageClick = async () => {
+        this.pageBuilder('Students');
+        this.students();
+        await this.populateStudentTable();
+    }
+
+
     populateStudentTable = async () => {
         try {
             const students = await this.getStudents();
@@ -433,6 +441,8 @@ export default class ViewHome{
            let fName = obj.parentElement.parentElement.children[1];
            let lName = obj.parentElement.parentElement.children[2];
            let date = obj.parentElement.parentElement.children[3];
+
+           this.object = {}
            
            this.object.id = parseInt(id.textContent);
            this.object.first_name = fName.textContent;
@@ -456,9 +466,10 @@ export default class ViewHome{
 
             await this.putStudent(this.object);
 
-            this.pageBuilder('Students');
-            this.students();
-            await this.populateStudentTable();
+            const btnBack = document.getElementById('goBack');
+            btnBack.click();
+            let btn = document.getElementById('students');
+            btn.click();
         }
     }
 
@@ -508,6 +519,10 @@ export default class ViewHome{
 
         let tBody = document.getElementById('enrolmentBody');
         tBody.innerHTML += tRow;
+    }
+
+    updateEnrollment = (obj) => {
+
     }
 
 //--- SignIn
