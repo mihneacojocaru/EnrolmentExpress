@@ -5,9 +5,9 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "debug":"nodemon"
+    "debug": "nodemon"
   },
-  "type":"module",
+  "type": "module",
   "author": "Mihnea",
   "license": "ISC",
   "dependencies": {

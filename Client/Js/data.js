@@ -8,6 +8,7 @@ export default class Data{
           headers: {
             "Content-Type": "application/json;charset=utf-8",
           },
+          mode:'cors'
         };
     
         if (body != null) {
