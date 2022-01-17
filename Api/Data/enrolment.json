@@ -50,13 +50,8 @@
     "created_at": "2021-04-02 09:01:56"
   },
   {
-    "student_id": 100,
-    "course_id": "Test100",
-    "created_at": "2021-04-02 09:01:56"
-  },
-  {
     "student_id": 11,
-    "course_id": "Test 3",
+    "course_id": "Test_Am_Reusit!",
     "created_at": "2021-04-02 09:01:56"
   }
 ]

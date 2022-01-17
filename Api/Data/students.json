@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "first_name": "Aloïs Test223",
+    "first_name": "Aloïs Test",
     "last_name": "Veldens",
     "date_of_birth": "02/22/2001"
   },
@@ -298,17 +298,5 @@
     "first_name": "Séverine",
     "last_name": "Aupol",
     "date_of_birth": "06/13/1999"
-  },
-  {
-    "id": 51,
-    "first_name": "Aloïs555",
-    "last_name": "VeldensTtt",
-    "date_of_birth": "20/12/1990"
-  },
-  {
-    "id": 52,
-    "first_name": "Student qw",
-    "last_name": "Student3",
-    "date_of_birth": "20/12/1990"
   }
 ]

@@ -40,6 +40,16 @@ export default class EnrolmentRepository {
     }
   };
 
+  timeStamp(){
+    let date = new Date();
+    
+    console.log(date.toString());
+  }
+
+  constructor(){
+    this.timeStamp();
+  }
+
   deleteEnrolment = async (studentId, courseId) => {
     try {
       let enrolments = await this.getEnrolment();
@@ -57,9 +67,11 @@ export default class EnrolmentRepository {
       let enrolments = await this.getEnrolment();
 
       for (let i = 0; i < enrolments.length; i++) {
-        if (enrolments[i].student_id == studentId && enrolments[i].course_id == courseId) {
-          enrolments[i].student_id = item.student_id;
-          enrolments[i].course_id = item.course_id;
+        if(enrolments[i].student_id == studentId){
+          if(enrolments[i].course_id == courseId){
+            enrolments[i].student_id = item.student_id;
+            enrolments[i].course_id = item.course_id;
+          }
         }
       }
         await this.saveNewEnrolment(enrolments);

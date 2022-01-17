@@ -138,7 +138,7 @@ export default class ViewStudents{
             this.putStudent(this.object);
 
             this.home.pageBuilder('Students');
-            this.studentsMain();
+            setTimeout(()=>{this.studentsMain();},50);
         }
     }
 

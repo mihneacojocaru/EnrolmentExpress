@@ -79,8 +79,6 @@ export default class ViewHome{
                                 </div>
                             </div>`;
         main.addEventListener('click',this.eventHandler);
-        // let btn = document.getElementById('students');
-        // btn.click();
     }
 
 

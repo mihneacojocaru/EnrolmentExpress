@@ -117,4 +117,18 @@ export default class ViewEnrolments{
             console.warn(error);
         }
     }
-}
+
+    deleteEnrolments = async () => {
+        try {
+            const data = new Data();
+            const func = await data.deleteEnrolments();
+            return func;
+        } catch (error) {
+            console.warn(error);
+        }
+    }
+
+    putEnrolment = () => {
+        
+    }
+} 
