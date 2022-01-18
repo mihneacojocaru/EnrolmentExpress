@@ -186,7 +186,6 @@ export default class ViewStudents{
 
     getStudents = async () => {
         try {
-            console.log('from getStudents - fetch')
             const data = new Data();
             const students = await data.getStudents();
             return students;

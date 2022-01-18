@@ -33,6 +33,7 @@ export default class EnrolmentRepository {
   newEnrolmentsList = async (obj) => {
     try {
       let enrolment = await this.getEnrolment();
+      obj.created_at = this.timeStamp();
       enrolment.push(obj);
       await this.saveNewEnrolment(enrolment);
     } catch (error) {
@@ -43,11 +44,13 @@ export default class EnrolmentRepository {
   timeStamp(){
     let date = new Date();
     
-    console.log(date.toString());
-  }
+    let info = date.toISOString();
+    
+    let x = info.split('T');
+    let d = x[0];
+    let t = x[1].split('.');
 
-  constructor(){
-    this.timeStamp();
+    return d + ' ' + t[0];
   }
 
   deleteEnrolment = async (studentId, courseId) => {
@@ -71,10 +74,12 @@ export default class EnrolmentRepository {
           if(enrolments[i].course_id == courseId){
             enrolments[i].student_id = item.student_id;
             enrolments[i].course_id = item.course_id;
+            enrolments[i].created_at = this.timeStamp();
           }
         }
       }
-        await this.saveNewEnrolment(enrolments);
+      
+      await this.saveNewEnrolment(enrolments);
     } catch (error) {
       console.warn(error);
     }

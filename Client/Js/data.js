@@ -73,11 +73,29 @@ export default class Data{
         }
     }
 
+    async updateEnrolment(body){
+        try {
+            const response = await this.api(`http://localhost:3000/api/v1/enrolments/${body.oldStudent_id}/${body.oldCourse_id}`,'PUT', body);
+            return response.json();
+        } catch (error) {
+            return Promise.reject(error);
+        }
+    }
+
     //+++ DELETE
 
     async deleteStudent(id){
         try {
             const response = await this.api(`http://localhost:3000/api/v1/students/${id}`,'DELETE')
+            return response.json();
+        } catch (error) {
+            return Promise.reject(error);
+        }
+    }
+
+    async deleteEnrolment(obj){
+        try {
+            const response = await this.api(`http://localhost:3000/api/v1/enrolments/${obj.student_id}/${obj.course_id}`,'DELETE');
             return response.json();
         } catch (error) {
             return Promise.reject(error);
@@ -90,6 +108,14 @@ export default class Data{
         try {
             const response = await this.api('http://localhost:3000/api/v1/students','POST',body);
             return response.json();
+        } catch (error) {
+            return Promise.reject(error);
+        }
+    }
+
+    async postEnrolment(body){
+        try {
+            const resp = await this.api('http://localhost:3000/api/v1/enrolments','POST',body);
         } catch (error) {
             return Promise.reject(error);
         }

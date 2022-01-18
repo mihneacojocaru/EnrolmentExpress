@@ -72,7 +72,6 @@ export default class StundentRepository {
         if (students[i].id == item.id) {
           students[i] = item;
         }
-
         await this.saveNewStudent(students);
       }
     } catch (error) {

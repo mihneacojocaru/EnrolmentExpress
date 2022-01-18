@@ -298,5 +298,11 @@
     "first_name": "Séverine",
     "last_name": "Aupol",
     "date_of_birth": "06/13/1999"
+  },
+  {
+    "id": 51,
+    "first_name": "NewGuy",
+    "last_name": "Panchas",
+    "date_of_birth": "12/12/1990"
   }
 ]
