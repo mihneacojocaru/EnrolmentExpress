@@ -4,42 +4,37 @@ import CoursesRepository from '../Repository/CoursesRepository.js';
 const coursesRoute = express.Router();
 const courseRepo = new CoursesRepository();
 
-coursesRoute.get('/', async (req,res)=>{
-    try {
-        let items = await courseRepo.getCourses();
-        res.status(200).json(items);
-    } catch (error) {
-        res.status(500).json({message:error.message});
+function asyncHandler(callBack){
+    return async (req,res,next) => {
+        try {
+            await callBack(req,res,next);
+        } catch (error) {
+            next(error);
+        }
     }
-});
+}
 
-coursesRoute.post('/', (req,res)=>{
-    try {
-        let item = req.body;
-        //courseRepo.newCourseList(item);
-        res.status(200).json("New course sucessfuly added");
-    } catch (error) {
-        res.status(500).json({message:error.message});
-    }
-});
+coursesRoute.get('/', asyncHandler(async(req,res,next)=>{
+    let items = await courseRepo.getCourses();
+    res.status(200).json(items);
+}));
 
-coursesRoute.delete('/:studentId/:courseId', (req,res) =>{
-    try {
-        //let {id} = {... req.params};
-        //courseRepo.deleteEnrolment(req.params.studentId,req.params.courseId);
-        res.status(200).json('Deleted successfuly');
-    } catch (error) {
-        res.status(500).json({message:error.message});
-    }
-});
+coursesRoute.post('/', asyncHandler(async(req,res,next)=>{
+    let item = req.body;
+    //courseRepo.newCourseList(item);
+    res.status(200).json("New course sucessfuly added");
+}));
 
-coursesRoute.put('/:studentId/:courseId', (req,res)=>{
-    try {
-        //courseRepo.updateEnrolmentsList(req.body,req.params.studentId,req.params.courseId);
-        res.status(200).json("You've been succesfully enroled");
-    } catch (error) {
-        res.status(500).json({message:error.message});
-    }
-});
+coursesRoute.delete('/:courseId', asyncHandler(async(req,res,next)=>{
+    let {courseId} = req.params; 
+    //--> Same as: let id = req.params.courseId;
+    courseRepo.deleteCourse(courseId);
+    res.status(200).json('Deleted successfuly');
+}));
+
+coursesRoute.put('/:studentId/:courseId', asyncHandler(async(req,res,next)=>{
+    //courseRepo.updateEnrolmentsList(req.body,req.params.studentId,req.params.courseId);
+    res.status(200).json("You've been succesfully enroled");
+}));
 
 export default coursesRoute;

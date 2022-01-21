@@ -64,6 +64,21 @@ export default class StundentRepository {
     }
   };
 
+  verifyItem = async (id) => {
+    try {
+      const students = await this.getStudents();
+      let boolean = false;
+      students.forEach(e => {
+        if(e.id == id){
+          boolean = true;
+        }
+      })
+      return boolean;
+    } catch (error) {
+      console.warn(error);
+    }
+  }
+
   updateStudents = async (item) => {
     try {
       let students = await this.getStudents();

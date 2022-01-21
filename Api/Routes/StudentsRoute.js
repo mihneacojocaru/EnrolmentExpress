@@ -6,43 +6,50 @@ let studentRoute = express.Router();
 
 let stRepo = new StundentRepository();
 
-studentRoute.get("/", async (req, res) => {
-  try {
-    let items = await stRepo.getStudents();
-    res.status(200).json(items);
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-});
+function asyncHandler(callBack){
+  return async (req,res,next) => {
+    try {
+      await callBack(req,res,next);
 
-studentRoute.post("/", (req, res) => {
-  try {
-    let item = req.body;
-    stRepo.newStudentsList(item);
-    res.status(200).json("Student succesfully added");
-  } catch (error) {
-    res.status(500).json({ message: error.message });
+    } catch (error) {
+      
+      next(error);
+    }
   }
-});
+}
 
-studentRoute.delete("/:id", (req, res) => {
-  try {
-    let { id } = req.params;
+studentRoute.get("/", asyncHandler(async (req,res,next) => {
+  let items = await stRepo.getStudents();
+  res.status(200).json(items);
+}));
+
+studentRoute.post("/", asyncHandler(async (req,res,next) =>{
+  let item = req.body;
+  stRepo.newStudentsList(item);
+  res.status(200).json("Student succesfully added");
+}));
+
+studentRoute.delete("/:id", asyncHandler(async (req,res,next) => {
+  let {id} = req.params;
+  let test = await stRepo.verifyItem(id);
+  if(test == true){
     stRepo.deleteStudent(id);
     res.status(200).json("Deleted successfuly");
-  } catch (error) {
-    res.status(500).json({ message: error.message });
+  }else{
+    req.id = id;
+    next();
   }
+}));
+
+studentRoute.use((req,res,next)=>{
+  let errMsg = `Student with id #${req.id} wasn't found.`;
+  next(errMsg);
 });
 
-studentRoute.put("/", (req, res) => {
-  try {
-    let item = req.body;
-    stRepo.updateStudents(item);
-    res.status(200).json("Updated successfuly");
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-});
+studentRoute.put("/",asyncHandler(async(req,res,next) =>{
+  let item = req.body;
+  stRepo.updateStudents(item);
+  res.status(200).json("Updated successfuly");
+}));
 
 export default studentRoute;

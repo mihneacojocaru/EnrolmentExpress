@@ -1,3 +1,4 @@
+import e from 'express';
 import fs from 'fs';
 
 export default class CoursesRepository{
@@ -28,17 +29,27 @@ export default class CoursesRepository{
       };
 
       deleteCourse = async (courseId) => {
-  
         try {
-          let courses = await getCourses();
+          let courses = await this.getCourses();
           courses = courses.filter( e => e.course_id !== courseId);
-      
-          console.log(courses);
-          //await saveNewCourse(courses);
-      
+          await this.saveNewCourse(courses);
         } catch (error) {
           console.warn(error);
         }
-      
+      }
+
+      verifyItem = async (courseId) => {
+        try {
+          let courses = await this.getCourses();
+          let boolean = false;
+          courses.forEach(e => {
+            if(e.course_id == courseId){
+              boolean = true;
+            }
+          });
+          return boolean;
+        } catch (error) {
+          console.warn(error);
+        }
       }
 }

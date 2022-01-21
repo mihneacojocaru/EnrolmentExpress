@@ -65,6 +65,21 @@ export default class EnrolmentRepository {
     }
   };
 
+  verifyItem = async (stId,cId) => {
+    try {
+      let enrolments = await this.getEnrolment();
+      let boolean = false;
+      enrolments.forEach(e => {
+        if(e.student_id == stId && e.course_id == cId){
+          boolean = true;
+        }
+      });
+      return boolean;
+    } catch (error) {
+      console.warn(error);
+    }
+  }
+
   updateEnrolmentsList = async (item,studentId,courseId) => {
     try {
       let enrolments = await this.getEnrolment();

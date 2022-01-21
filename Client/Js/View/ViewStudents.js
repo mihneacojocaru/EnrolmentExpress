@@ -224,6 +224,4 @@ export default class ViewStudents{
             console.warn(error);
         }
     }
-
-
 }
