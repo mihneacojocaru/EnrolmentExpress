@@ -27,6 +27,20 @@ enrolmentRoute.post('/', asyncHandler(async (req,res,next)=>{
     res.status(200).json("You've been succesfully enroled");
 }));
 
+enrolmentRoute.put('/:studentId/:courseId', asyncHandler( async (req,res,next) =>{
+    let test = await enrolmentRepo.verifyItem(req.params.studentId, req.params.courseId);
+    if(test == true){
+        enrolmentRepo.updateEnrolmentsList(req.body,req.params.studentId,req.params.courseId);
+        res.status(200).json("Enrollment updated succesfuly");
+    }else{
+        req.allIds = {
+            "stId": req.params.studentId,
+            "cId": req.params.courseId
+        }
+        next();
+    }
+}));
+
 enrolmentRoute.delete('/:studentId/:courseId', asyncHandler( async (req,res,next) => {
     let test = await enrolmentRepo.verifyItem(req.params.studentId, req.params.courseId);
     if(test == true){
@@ -46,9 +60,6 @@ enrolmentRoute.use((req,res,next)=>{
     next(errMsg);
 });
 
-enrolmentRoute.put('/:studentId/:courseId', asyncHandler( async (req,res,next) =>{
-    enrolmentRepo.updateEnrolmentsList(req.body,req.params.studentId,req.params.courseId);
-    res.status(200).json("You've been succesfully enroled");
-}));
+
 
 export default enrolmentRoute;

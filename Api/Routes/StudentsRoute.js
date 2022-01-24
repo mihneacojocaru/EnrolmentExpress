@@ -29,6 +29,18 @@ studentRoute.post("/", asyncHandler(async (req,res,next) =>{
   res.status(200).json("Student succesfully added");
 }));
 
+studentRoute.put("/",asyncHandler(async(req,res,next) =>{
+  let item = req.body;
+  let test = await stRepo.verifyItem(item.id);
+  if(test == true){
+    stRepo.updateStudents(item);
+    res.status(200).json("Updated successfuly");
+  }else{
+    req.id = item.id;
+    next();
+  }
+}));
+
 studentRoute.delete("/:id", asyncHandler(async (req,res,next) => {
   let {id} = req.params;
   let test = await stRepo.verifyItem(id);
@@ -46,10 +58,6 @@ studentRoute.use((req,res,next)=>{
   next(errMsg);
 });
 
-studentRoute.put("/",asyncHandler(async(req,res,next) =>{
-  let item = req.body;
-  stRepo.updateStudents(item);
-  res.status(200).json("Updated successfuly");
-}));
+
 
 export default studentRoute;

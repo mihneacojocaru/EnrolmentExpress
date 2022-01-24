@@ -52,4 +52,29 @@ export default class CoursesRepository{
           console.warn(error);
         }
       }
+
+      newCourseList = async (item) => {
+        try {
+          let courses = await this.getCourses();
+          courses.push(item);
+          await this.saveNewCourse(courses);
+        } catch (error) {
+          console.log(error)
+        }
+      }
+
+      updateCourses = async (item) => {
+        try {
+          let courses = await this.getCourses();
+
+          for(let i=0; i<courses.length; i++){
+            if(courses[i].course_id == item.course_id){
+              courses[i] = item;
+            }
+            await this.saveNewCourse(courses);
+          }
+        } catch (error) {
+          console.warn(error);
+        }
+      }
 }

@@ -56,14 +56,30 @@ export default class EnrolmentRepository {
   deleteEnrolment = async (studentId, courseId) => {
     try {
       let enrolments = await this.getEnrolment();
-      enrolments = enrolments.filter(
-        (e) => e.student_id !== studentId && e.course_id !== courseId
-      );
-      await this.saveNewEnrolment(enrolments);
+      
+      let list = [];
+      enrolments.forEach( e=>{
+        let reqBody = [e.student_id,e.course_id];
+        let data = [parseInt(studentId),courseId];
+        let test = this.arrayEquals(reqBody,data);
+        
+        if(test == false){
+          list.push(e);
+        }
+      });
+     
+      await this.saveNewEnrolment(list);
     } catch (error) {
       console.warn(error);
     }
   };
+
+  arrayEquals = (a, b) => {
+    return Array.isArray(a) &&
+      Array.isArray(b) &&
+      a.length === b.length &&
+      a.every((val, index) => val === b[index]);
+  }
 
   verifyItem = async (stId,cId) => {
     try {

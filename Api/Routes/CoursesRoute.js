@@ -21,20 +21,40 @@ coursesRoute.get('/', asyncHandler(async(req,res,next)=>{
 
 coursesRoute.post('/', asyncHandler(async(req,res,next)=>{
     let item = req.body;
-    //courseRepo.newCourseList(item);
+    courseRepo.newCourseList(item);
     res.status(200).json("New course sucessfuly added");
+}));
+
+coursesRoute.put('/put', asyncHandler(async(req,res,next)=>{
+    let item = req.body;
+    let test = await courseRepo.verifyItem(item.course_id);
+    if(test == true){
+        courseRepo.updateCourses(item);
+    res.status(200).json("You've been succesfully enroled");
+    }else{
+        req.id = item.course_id;
+        next();
+    }
 }));
 
 coursesRoute.delete('/:courseId', asyncHandler(async(req,res,next)=>{
     let {courseId} = req.params; 
     //--> Same as: let id = req.params.courseId;
-    courseRepo.deleteCourse(courseId);
-    res.status(200).json('Deleted successfuly');
+    let test = await courseRepo.verifyItem(courseId);
+    if(test == true){
+        courseRepo.deleteCourse(courseId);
+        res.status(200).json('Deleted successfuly');
+    }else{
+        req.id = courseId;
+        next();
+    }
 }));
 
-coursesRoute.put('/:studentId/:courseId', asyncHandler(async(req,res,next)=>{
-    //courseRepo.updateEnrolmentsList(req.body,req.params.studentId,req.params.courseId);
-    res.status(200).json("You've been succesfully enroled");
-}));
+coursesRoute.use((req,res,next) => {
+    let errMsg = `Course with id #${req.id} wasn't found.`;
+    next(errMsg);
+});
+
+
 
 export default coursesRoute;

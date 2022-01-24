@@ -93,5 +93,10 @@
     "course_id": "ELY",
     "course_name": "Data Warehousing",
     "department": "Business Development"
+  },
+  {
+    "course_id": "OTP",
+    "course_name": "merge",
+    "department": "Business Development"
   }
 ]
