@@ -16,6 +16,8 @@ export default class ViewCourses{
         }else if(obj.id == 'goBack2'){
             this.home.pageBuilder('Courses');
             this.coursesMain();
+        }else if(obj.className == "newCourse"){
+            this.addCourse();
         }
     }
 
@@ -140,5 +142,26 @@ export default class ViewCourses{
         <p>Course ID: ${obj.course_id}</p>`;
         let cBox = document.getElementById('courseBox');
         cBox.innerHTML = card;
+    }
+
+    //--- Add Course
+
+    addCourse = () => {
+        let addSection = document.querySelector('.container-courses');
+        addSection.innerHTML = `<div class="addSectionStyle">
+                                    <h2>Add new student</h2>
+                                    <form action="#">
+                                        <label for="fName">Frist Name</label>
+                                        <input type="text" name="fName">
+                                        <label for="lName">Last Name</label>
+                                        <input type="text" name="lName">
+                                        <label for="dOB">Date of Birth</label>
+                                        <input type="text" name="dOB">
+                                    </form>
+                                    <div class="buttons">
+                                        <button id="addStBtn">Add Student</button>
+                                        <button id="cancel">Cancel</button>
+                                    </div>
+                                </div>`;
     }
 }

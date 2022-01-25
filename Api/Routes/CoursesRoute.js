@@ -55,6 +55,4 @@ coursesRoute.use((req,res,next) => {
     next(errMsg);
 });
 
-
-
 export default coursesRoute;
